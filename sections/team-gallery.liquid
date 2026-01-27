@@ -1,0 +1,94 @@
+{% schema %}
+{
+  "name": "Team Gallery",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Our Thought Leaders"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Direct access to senior aerospace advisors with decades of industry experience."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "member",
+      "name": "Team Member",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Profile Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Jerrold Lundquist"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Managing Director"
+        },
+        {
+          "type": "textarea",
+          "id": "bio",
+          "label": "Expertise",
+          "default": "Advisory for M&A, Strategy, and Operational Excellence in Aerospace & Defense."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Team Gallery",
+      "blocks": [
+        { "type": "member" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<section class="py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-serif text-gray-900 sm:text-4xl mb-4">{{ section.settings.title }}</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        {{ section.settings.subtitle }}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+      {% for block in section.blocks %}
+        <div class="text-center">
+          <div class="relative inline-block mb-8">
+            {% if block.settings.image != blank %}
+              <img src="{{ block.settings.image | img_url: '400x400', crop: 'center' }}" 
+                   alt="{{ block.settings.name }}" 
+                   class="h-64 w-64 rounded-2xl object-cover shadow-lg grayscale hover:grayscale-0 transition-all duration-300">
+            {% else %}
+               <div class="h-64 w-64 rounded-2xl bg-gray-200 flex items-center justify-center shadow-lg mx-auto">
+                 <svg class="h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                 </svg>
+               </div>
+            {% endif %}
+          </div>
+          <h3 class="text-2xl font-serif font-bold text-gray-900">{{ block.settings.name }}</h3>
+          <p class="text-indigo-600 font-medium mb-4">{{ block.settings.title }}</p>
+          <p class="text-gray-600 max-w-xs mx-auto">
+            {{ block.settings.bio }}
+          </p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

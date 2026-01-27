@@ -13,13 +13,69 @@
       },
       "block_order": ["b1", "b2", "b3"]
     },
+    "service_grid": {
+      "type": "services-grid",
+      "settings": {
+        "title": "Advisory & Strategy Solutions",
+        "subtitle": "Direct access to senior aerospace leadership for mission-critical objectives."
+      },
+      "blocks": {
+        "s1": {
+          "type": "service",
+          "settings": {
+            "service_product": "executive-strategy-call-90",
+            "features": "90-minute executive deep dive\nRemote or On-site consultation\nImmediate tactical roadmap\nFull recording and brief included"
+          }
+        },
+        "s2": {
+          "type": "service",
+          "settings": {
+            "service_product": "strategy-sprint-2w",
+            "features": "2-week intensive strategic focus\nFull diagnostic organizational brief\nBoard-ready presentation decks\nRisk mitigation & synergy roadmap",
+            "highlight": true
+          }
+        },
+        "s3": {
+          "type": "service",
+          "settings": {
+            "service_product": "transaction-diligence-4w",
+            "features": "4-week Buy-side/Sell-side diligence\nTechnical & Commercial assessment\nRed-flag review and exposure audit\nFinal Investment Committee report"
+          }
+        }
+      },
+      "block_order": ["s1", "s2", "s3"]
+    },
+    "team": {
+      "type": "team-gallery",
+      "settings": {
+        "title": "Thought Leadership",
+        "subtitle": "Our partners bring decades of experience from Tier-1 OEMs and private equity."
+      },
+      "blocks": {
+        "m1": {
+          "type": "member",
+          "settings": {
+            "name": "Jerrold Lundquist",
+            "title": "Managing Director",
+            "bio": "Aerospace & Defense strategy specialist. Previous leadership at Tier-1 primes and board-level advisory."
+          }
+        }
+      },
+      "block_order": ["m1"]
+    },
+    "resources": {
+      "type": "resources-feed",
+      "settings": {
+        "title": "Industry Insights"
+      }
+    },
     "methodology": {
       "type": "methodology",
       "blocks": {
-        "p1": { "type": "phase", "settings": { "heading": "1) Rapid Assessment (1–2 weeks)", "content": "<p>Discovery sessions, KPI baseline, stakeholder mapping. Diagnostic brief & 90‑day plan.</p>" } },
-        "p2": { "type": "phase", "settings": { "heading": "2) Options & Business Case (2–4 weeks)", "content": "<p>Scenario design, sensitivity analysis, resourcing plan. Options memo & board‑ready deck.</p>" } },
-        "p3": { "type": "phase", "settings": { "heading": "3) Execution Support (ongoing)", "content": "<p>Workstream leadership, vendor coordination, tracking. Weekly progress reports & KPI roll‑ups.</p>" } },
-        "p4": { "type": "phase", "settings": { "heading": "4) Transition & Training (1–2 weeks)", "content": "<p>Knowledge transfer, playbooks, handover workshop. SOPs, dashboards, close‑out brief.</p>" } }
+        "p1": { "type": "phase", "settings": { "heading": "1) Rapid Assessment", "content": "<p>Discovery sessions, KPI baseline, stakeholder mapping. Diagnostic brief & 90‑day plan.</p>" } },
+        "p2": { "type": "phase", "settings": { "heading": "2) Options & Business Case", "content": "<p>Scenario design, sensitivity analysis, resourcing plan. Options memo & board‑ready deck.</p>" } },
+        "p3": { "type": "phase", "settings": { "heading": "3) Execution Support", "content": "<p>Workstream leadership, vendor coordination, tracking. Weekly progress reports & KPI roll‑ups.</p>" } },
+        "p4": { "type": "phase", "settings": { "heading": "4) Transition & Training", "content": "<p>Knowledge transfer, playbooks, handover workshop. SOPs, dashboards, close‑out brief.</p>" } }
       },
       "block_order": ["p1", "p2", "p3", "p4"]
     },
@@ -39,39 +95,7 @@
     "cta": {
       "type": "conversion-cta",
       "settings": {}
-    },
-    "service_grid": {
-      "type": "services-grid",
-      "settings": {
-        "title": "Strategy & Advisory Solutions",
-        "subtitle": "Direct access to senior aerospace leadership for mission-critical objectives."
-      },
-      "blocks": {
-        "s1": {
-          "type": "service",
-          "settings": {
-            "service_product": "executive-strategy-call-90",
-            "features": "90-minute deep dive\nRemote or On-site\nImmediate tactical roadmap\nRecording included"
-          }
-        },
-        "s2": {
-          "type": "service",
-          "settings": {
-            "service_product": "advisory-pack-3x60",
-            "features": "3 x 60-minute sessions\nFlexible scheduling\nOngoing project support\nDirect email access",
-            "highlight": true
-          }
-        },
-        "s3": {
-          "type": "service",
-          "settings": {
-            "service_product": "strategy-sprint-2w",
-            "features": "2-week intensive focus\nFull diagnostic brief\nBoard-ready presentation\nRisk mitigation plan"
-          }
-        }
-      },
-      "block_order": ["s1", "s2", "s3"]
     }
   },
-  "order": ["hero", "kpis", "service_grid", "methodology", "about", "outcomes", "cta"]
+  "order": ["hero", "kpis", "service_grid", "team", "resources", "methodology", "about", "outcomes", "cta"]
 }
