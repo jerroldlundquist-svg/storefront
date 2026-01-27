@@ -1,0 +1,40 @@
+<section class="article-template" style="padding: 60px 20px; background: #fff;">
+  <div class="shell" style="max-width: 800px; margin: 0 auto;">
+    {% if article.image %}
+      <div class="article__hero" style="margin-bottom: 40px; border-radius: 12px; overflow: hidden; box-shadow: 0 12px 24px rgba(0,0,0,0.1);">
+        <img src="{{ article.image | image_url: width: 1600 }}" loading="eager" width="1600" height="900" alt="{{ article.image.alt }}" style="width: 100%; height: auto; display: block;">
+      </div>
+    {% endif %}
+
+    <header class="article__header" style="text-align: center; margin-bottom: 48px;">
+      <div class="article__meta" style="color: var(--lg-navy); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">
+        {{ article.published_at | time_tag: format: 'date' }} • {{ blog.title }}
+      </div>
+      <h1 class="h1" style="font-size: clamp(32px, 4vw, 48px); line-height: 1.1; margin-bottom: 24px; color: #111827;">{{ article.title }}</h1>
+      <div class="article__author" style="display: flex; align-items: center; justify-content: center; gap: 12px;">
+        <div class="author-avatar" style="width: 40px; height: 40px; background: var(--lg-navy); color: white; border-radius: 50%; display: grid; place-items: center; font-weight: bold;">
+          {{ article.author | truncate: 1, '' }}
+        </div>
+        <div class="author-name" style="font-weight: 600; color: #374151;">{{ article.author }}</div>
+      </div>
+    </header>
+
+    <div class="article__content rte" style="font-size: 1.125rem; line-height: 1.8; color: #374151;">
+      {{ article.content }}
+    </div>
+
+    <div class="article__footer" style="margin-top: 60px; padding-top: 40px; border-top: 1px solid #e5e7eb; text-align: center;">
+      <a href="{{ blog.url }}" class="btn btn--secondary" style="display: inline-block; padding: 12px 24px; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #111827; font-weight: 600; transition: all 0.2s;">
+        ← Back to Insights
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blog Post",
+  "settings": [],
+  "presets": [{ "name": "Blog Post" }]
+}
+{% endschema %}

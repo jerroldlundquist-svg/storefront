@@ -19,7 +19,7 @@
     <div class="stack" style="margin-top: 18px; display: flex; gap: 1rem; justify-content: center;">
       {% assign product_1 = all_products[section.settings.cta_product_1] %}
       <a class="btn btn--primary {% if section.settings.cta_direct_1 %}tlg-buy{% endif %}" 
-         href="{% if section.settings.cta_direct_1 and product_1 != blank %}/cart/{{ product_1.first_available_variant.id }}:1{% else %}{{ section.settings.cta_link_1 }}{% endif %}" 
+         href="{% if section.settings.cta_direct_1 and product_1 != blank %}/cart/{{ product_1.first_available_variant.id }}:1{% elsif section.settings.cta_link_1 != blank %}{{ section.settings.cta_link_1 }}{% else %}#cta{% endif %}" 
          {% if section.settings.cta_direct_1 %}
            data-handle="{{ product_1.handle }}" 
            data-variant="{{ product_1.first_available_variant.id }}"
