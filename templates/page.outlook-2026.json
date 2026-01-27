@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "main": {
+      "type": "article-2026-body",
+      "settings": {}
+    }
+  },
+  "order": ["main"]
+}

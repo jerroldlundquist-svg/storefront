@@ -1,0 +1,39 @@
+<section class="section py-20 bg-gray-50">
+  <div class="shell max-w-7xl mx-auto px-6">
+    <div class="header mb-12 text-center">
+      <div class="h-eyebrow text-sky-600 font-bold uppercase tracking-widest mb-2">Market Intelligence</div>
+      <h2 class="h2 text-4xl font-serif text-gray-900">Latest Strategic Analysis</h2>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 items-center bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+      <div class="image-wrapper overflow-hidden rounded-xl h-full min-h-[400px]">
+        <img src="{{ 'blog-hero-2026.png' | asset_url }}" alt="Aerospace Boardroom Strategy" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+      </div>
+      <div class="content-wrapper flex flex-col justify-center">
+        <div class="meta text-sm font-bold text-sky-600 uppercase mb-4">
+          Outlook 2026 • Knowledge Brief
+        </div>
+        <h3 class="h3 text-3xl font-serif text-gray-900 mb-6 leading-tight">
+          Aerospace & Defense M&A Outlook 2026: The Age of Autonomy
+        </h3>
+        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+          Driven by geopolitical instability and rapid AI integration, mid-market M&A is expected to outpace mega-mergers relative to supply chain sovereignty and autonomous systems.
+        </p>
+        <div class="actions">
+          <a href="/pages/outlook-2026" class="btn btn--primary inline-flex items-center bg-navy-900 text-white px-8 py-4 rounded-lg font-bold hover:bg-sky-600 transition-colors">
+            Read Full Analysis
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Latest Insights",
+  "settings": [],
+  "presets": [{ "name": "Latest Insights" }]
+}
+{% endschema %}

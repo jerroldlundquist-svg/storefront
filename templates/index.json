@@ -96,6 +96,10 @@
       },
       "block_order": ["o1", "o2", "o3"]
     },
+    "latest_insights": {
+      "type": "latest-insights",
+      "settings": {}
+    },
     "google_reviews": {
       "type": "google-reviews",
       "blocks": {
