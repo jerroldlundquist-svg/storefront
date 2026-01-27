@@ -116,3 +116,35 @@
 </section>
 
 <form action="/cart" method="post" id="cart" class="hidden"></form>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const checkoutBtn = document.getElementById("CartCheckout");
+    const agreementCheckbox = document.getElementById("service-agreement");
+    const cartForm = document.getElementById("cart");
+
+    if (checkoutBtn && agreementCheckbox) {
+      // Create a hidden input for the agreement inside the cart form so it gets submitted
+      const hiddenAgreement = document.createElement('input');
+      hiddenAgreement.type = 'hidden';
+      hiddenAgreement.name = 'attributes[Agreed to Advisory Terms]';
+      hiddenAgreement.value = 'No';
+      cartForm.appendChild(hiddenAgreement);
+
+      const validate = () => {
+        if (agreementCheckbox.checked) {
+          checkoutBtn.disabled = false;
+          checkoutBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+          hiddenAgreement.value = 'Yes';
+        } else {
+          checkoutBtn.disabled = true;
+          checkoutBtn.classList.add('opacity-50', 'cursor-not-allowed');
+          hiddenAgreement.value = 'No';
+        }
+      };
+
+      agreementCheckbox.addEventListener('change', validate);
+      validate(); // Initial state
+    }
+  });
+</script>

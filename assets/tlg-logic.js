@@ -142,12 +142,6 @@ window.TLG = {
       const direct = buy.dataset.direct === "true";
 
       try {
-        const agreement = document.getElementById("service-agreement");
-        if (agreement && !agreement.checked) {
-          alert("Please agree to the Advisory Terms and Refund Policy before proceeding.");
-          return;
-        }
-
         if (!direct) {
           return window.location.href = TLG.productUrl(handle);
         }
@@ -203,12 +197,6 @@ window.TLG = {
       const direct = sched.dataset.direct === "true";
 
       try {
-        const agreement = document.getElementById("service-agreement");
-        if (agreement && !agreement.checked) {
-          alert("Please agree to the Advisory Terms and Refund Policy before proceeding.");
-          return;
-        }
-
         if (direct && (handle || variant)) {
           // If we have a variant ID directly, we can just use a cart link for maximum reliability
           if (variant) {

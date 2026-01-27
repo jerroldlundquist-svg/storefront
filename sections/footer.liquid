@@ -63,11 +63,17 @@
           © {{ 'now' | date: "%Y" }} {{ shop.name }}. All rights reserved.
         </p>
         <div class="flex items-center space-x-4">
-          {% for link in linklists.footer-legal.links %}
-            <a href="{{ link.url }}" class="text-xs text-slate-400 hover:text-blue-400 transition-colors duration-200">
-              {{ link.title }}
-            </a>
-          {% endfor %}
+          {% if linklists.footer-legal.links != blank %}
+            {% for link in linklists.footer-legal.links %}
+              <a href="{{ link.url }}" class="text-xs text-slate-400 hover:text-blue-400 transition-colors duration-200">
+                {{ link.title }}
+              </a>
+            {% endfor %}
+          {% else %}
+            <a href="/pages/privacy" class="text-xs text-slate-400 hover:text-blue-400 transition-colors duration-200">Privacy Policy</a>
+            <a href="/pages/terms" class="text-xs text-slate-400 hover:text-blue-400 transition-colors duration-200">Terms & Conditions</a>
+            <a href="/pages/cookies" class="text-xs text-slate-400 hover:text-blue-400 transition-colors duration-200">Cookie Policy</a>
+          {% endif %}
         </div>
       </div>
     </div>
