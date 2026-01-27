@@ -20,6 +20,34 @@
 
     {% render 'meta-tags' %}
 
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "{{ shop.name }}",
+        "url": "{{ shop.url }}",
+        "logo": "https:{{ 'logo.png' | asset_url }}",
+        "sameAs": [
+          "{{ settings.social_twitter_link }}",
+          "{{ settings.social_facebook_link }}",
+          "{{ settings.social_linkedin_link }}"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-804-924-4217",
+          "contactType": "Customer Service"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "name": "{{ shop.name }}",
+        "url": "{{ shop.url }}"
+      }
+    </script>
+
     <script src="{{ 'tlg-logic.js' | asset_url }}" defer="defer"></script>
     {{ content_for_header }}
 
