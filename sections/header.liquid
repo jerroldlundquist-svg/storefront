@@ -30,7 +30,7 @@
       </nav>
 
       <div class="hidden lg:flex items-center space-x-4">
-        <a href="/pages/contact" class="btn btn--ghost secondary-btn text-sm font-bold border border-slate-300 px-4 py-2 rounded-md hover:bg-slate-50 transition-colors">Schedule Consultation</a>
+        <a href="{% if template == 'index' %}#service_grid{% else %}/#service_grid{% endif %}" class="btn btn--ghost secondary-btn text-sm font-bold border border-slate-300 px-4 py-2 rounded-md hover:bg-slate-50 transition-colors">Schedule Consultation</a>
       </div>
 
       <button id="MobileMenuToggle" class="lg:hidden p-2">
@@ -56,6 +56,18 @@
       "id": "menu",
       "label": "Main menu",
       "default": "main-menu"
+    },
+    {
+      "type": "text",
+      "id": "cta_text_2",
+      "label": "CTA 2 Text",
+      "default": "Explore Services"
+    },
+    {
+      "type": "url",
+      "id": "cta_link_2",
+      "label": "CTA 2 Link",
+      "default": "#service_grid"
     }
   ]
 }

@@ -29,7 +29,7 @@
       
       {% assign product_2 = all_products[section.settings.cta_product_2] %}
       <a class="btn btn--ghost {% if section.settings.cta_direct_2 %}tlg-schedule{% endif %}" 
-         href="{% if section.settings.cta_direct_2 and product_2 != blank %}/cart/{{ product_2.first_available_variant.id }}:1{% else %}{{ section.settings.cta_link_2 }}{% endif %}" 
+         href="{% if section.settings.cta_direct_2 and product_2 != blank %}/cart/{{ product_2.first_available_variant.id }}:1{% elsif section.settings.cta_link_2 != blank %}{{ section.settings.cta_link_2 }}{% else %}{% if template == 'index' %}#service_grid{% else %}/#service_grid{% endif %}{% endif %}" 
          {% if section.settings.cta_direct_2 %}
            data-handle="{{ product_2.handle }}" 
            data-variant="{{ product_2.first_available_variant.id }}"

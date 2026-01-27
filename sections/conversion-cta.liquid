@@ -4,7 +4,7 @@
     <p class="lead" style="color: #cfd9e3; font-size: 1.1rem; margin-bottom: 24px;">{{ section.settings.subtitle }}</p>
     {% assign product = all_products[section.settings.cta_product] %}
     <a class="btn btn--primary {% if section.settings.cta_direct %}tlg-buy{% endif %}" 
-       href="{% if section.settings.cta_direct and product != blank %}/cart/{{ product.first_available_variant.id }}:1{% else %}{{ section.settings.cta_link }}{% endif %}" 
+       href="{% if section.settings.cta_direct and product != blank %}/cart/{{ product.first_available_variant.id }}:1{% elsif section.settings.cta_link != blank %}{{ section.settings.cta_link }}{% else %}{% if template == 'index' %}#service_grid{% else %}/#service_grid{% endif %}{% endif %}" 
        {% if section.settings.cta_direct %}
          data-handle="{{ product.handle }}" 
          data-variant="{{ product.first_available_variant.id }}"
