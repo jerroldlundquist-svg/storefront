@@ -96,10 +96,46 @@
       },
       "block_order": ["o1", "o2", "o3"]
     },
+    "google_reviews": {
+      "type": "google-reviews",
+      "blocks": {
+        "r1": {
+          "type": "review",
+          "settings": {
+            "author_name": "Marcus T.",
+            "author_initial": "M",
+            "stars": "5",
+            "date": "1 month ago",
+            "text": "The Lundquist Group provided invaluable insight into our federal procurement strategy. Their expertise in ITAR compliance and supply chain risk was a game changer."
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "author_name": "Sarah J.",
+            "author_initial": "S",
+            "stars": "5",
+            "date": "2 months ago",
+            "text": "Exceptional clarity and professionalism. The 90-minute executive briefing gave us a clear 3-year roadmap that we are already executing on."
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "author_name": "David W.",
+            "author_initial": "D",
+            "stars": "5",
+            "date": "3 weeks ago",
+            "text": "Highly recommended for any defense prime looking to optimize their operational overhead. Real-world experience that translates to bottom-line results."
+          }
+        }
+      },
+      "block_order": ["r1", "r2", "r3"]
+    },
     "cta": {
       "type": "conversion-cta",
       "settings": {}
     }
   },
-  "order": ["hero", "kpis", "service_grid", "comparison_chart", "team", "resources", "methodology", "about", "outcomes", "cta"]
+  "order": ["hero", "kpis", "service_grid", "comparison_chart", "google_reviews", "team", "resources", "methodology", "about", "outcomes", "cta"]
 }
