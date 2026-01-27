@@ -1,0 +1,51 @@
+<section id="about" class="section" style="padding: 72px 20px;">
+  <div class="shell" style="max-width: 1200px; margin: 0 auto;">
+    <div class="h-eyebrow" style="color: var(--lg-sky); text-transform: uppercase; font-weight: 700;">{{ section.settings.eyebrow }}</div>
+    <h2 class="h2" style="font-size: clamp(24px, 3.2vw, 36px); line-height: 1.2;">{{ section.settings.title }}</h2>
+
+    <div class="grid grid--2" style="display: grid; gap: 40px; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; margin-top: 16px;">
+      <div>
+        {% if section.settings.image != blank %}
+          <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.image.alt }}" style="width: 100%; max-width: 420px; border-radius: 14px; border: 1px solid #e4e6ea;">
+        {% else %}
+          <img src="{{ '1d13de1f-0089-4774-8cfa-48391ee0b47d.png' | asset_url }}" alt="Leadership" style="width: 100%; max-width: 420px; border-radius: 14px; border: 1px solid #e4e6ea;">
+        {% endif %}
+      </div>
+
+      <div class="stack" style="display: flex; flex-direction: column; gap: 16px;">
+        <p class="lead" style="font-size: 1.1rem; color: #6b7b8c;">
+          {{ section.settings.description }}
+        </p>
+        <div class="richtext">
+          {{ section.settings.details }}
+        </div>
+        <div class="hr" style="height: 1px; background: #e8eaee; margin: 24px 0;"></div>
+        <div class="stack">
+          <div class="h3" style="font-weight: 700;">{{ section.settings.subtitle }}</div>
+          {{ section.settings.list_items }}
+        </div>
+        <div class="stack" style="margin-top: 10px;">
+          <a class="btn btn--primary" href="{{ section.settings.cta_link }}" style="background: var(--lg-sky); color: #002c5a; padding: 12px 18px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block;">{{ section.settings.cta_text }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About Leadership",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "About" },
+    { "type": "text", "id": "title", "label": "Title", "default": "The Lundquist Group, Inc" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "We advise leadership teams, private equity, and institutional investors across aerospace, defense, transportation, and technology—combining transactional expertise with deep operating experience." },
+    { "type": "richtext", "id": "details", "label": "Details" },
+    { "type": "text", "id": "subtitle", "label": "Sub-heading", "default": "What sets us apart" },
+    { "type": "richtext", "id": "list_items", "label": "List Items" },
+    { "type": "text", "id": "cta_text", "label": "CTA Text", "default": "Talk with an advisor" },
+    { "type": "url", "id": "cta_link", "label": "CTA Link" }
+  ],
+  "presets": [{ "name": "About Leadership" }]
+}
+{% endschema %}

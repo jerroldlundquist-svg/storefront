@@ -1,0 +1,62 @@
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background/95 backdrop-blur-md border-b border-border">
+  <div class="container mx-auto px-6">
+    <div class="flex items-center justify-between h-20">
+      <a href="/" class="flex-shrink-0">
+        <h1 class="text-2xl font-serif font-semibold text-foreground">
+          {{ shop.name }}
+        </h1>
+      </a>
+
+      <nav class="hidden lg:flex items-center space-x-8">
+        {% for link in linklists.main-menu.links %}
+          <a href="{{ link.url }}" class="text-sm font-medium transition-colors duration-200 hover:text-accent focus-ring {% if link.active %}text-accent{% else %}text-foreground{% endif %}">
+            {{ link.title }}
+          </a>
+        {% endfor %}
+        
+        <div class="relative group">
+          <button class="flex items-center text-sm font-medium transition-colors duration-200 hover:text-accent focus-ring text-foreground">
+            Services
+            <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 mt-2 w-80 bg-background border border-border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            {% for link in linklists.services.links %}
+              <a href="{{ link.url }}" class="block px-4 py-3 text-sm hover:bg-gray-100 transition-colors">
+                {{ link.title }}
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+      </nav>
+
+      <div class="hidden lg:flex items-center space-x-4">
+        <a href="/pages/contact" class="btn btn--ghost secondary-btn text-sm font-bold border border-slate-300 px-4 py-2 rounded-md hover:bg-slate-50 transition-colors">Schedule Consultation</a>
+      </div>
+
+      <button id="MobileMenuToggle" class="lg:hidden p-2">
+         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('MobileMenuToggle');
+    // ... basic mobile menu toggle JS could go here if needed ...
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Main menu",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}
