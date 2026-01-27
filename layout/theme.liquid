@@ -7,6 +7,11 @@
     <meta name="theme-color" content="{{ settings.color_primary }}">
     <link rel="canonical" href="{{ canonical_url }}">
 
+    <!-- User Verification Signature -->
+    <meta name="signature" content="sig1=:q+nG8Po8p1CbR74xfXCtb5jFvqD1CaV3WP2KQpAJpzC8eUihFAqja1Gu2NQCLSjKDXdgKkatcKj1EEstQLPqDw==:">
+    <meta name="signature-input" content='sig1=("@authority" "signature-agent");keyid="FZhBoubzJDfpJUPLUmyg5OTEuggRhXFStBseUXjMACE";nonce="nZDB5LkdJ/k8t+aoepxU5wdpNmJ1o2vuSHsOSVTrmiAukxfnzUPClUcr7dl4QaRcRrrzk7ttSSvZjy3eqE535A==";tag="web-bot-auth";created=1769557149;expires=1777333149'>
+    <meta name="signature-agent" content="https://shopify.com">
+
     <title>
       {{ page_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
