@@ -1,0 +1,74 @@
+{% schema %}
+{
+  "name": "Main Collection",
+  "settings": [
+    {
+      "type": "number",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "default": 12
+    }
+  ]
+}
+{% endschema %}
+
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h1 class="text-4xl font-serif font-bold text-gray-900 mb-4">{{ collection.title }}</h1>
+      {% if collection.description != blank %}
+        <div class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          {{ collection.description }}
+        </div>
+      {% endif %}
+    </div>
+
+    {% paginate collection.products by section.settings.products_per_page %}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {% for product in collection.products %}
+          <div class="flex flex-col border border-gray-200 rounded-2xl p-8 bg-white hover:shadow-xl transition-shadow duration-300">
+            <div class="flex-1">
+              <h3 class="text-2xl font-serif font-bold text-gray-900 mb-2">{{ product.title }}</h3>
+              <a href="{{ product.url }}" class="text-xs font-bold text-indigo-600 uppercase tracking-widest hover:text-indigo-700 transition-colors mb-4 inline-block">Learn More & Details</a>
+              <div class="flex items-baseline mb-6">
+                <span class="text-4xl font-bold tracking-tight text-gray-900">{{ product.price | money }}</span>
+                {% if product.compare_at_price > product.price %}
+                  <span class="ml-2 text-lg text-gray-500 line-through">{{ product.compare_at_price | money }}</span>
+                {% endif %}
+              </div>
+              
+              <div class="text-gray-600 mb-8 line-clamp-3">
+                {{ product.description | strip_html | truncatewords: 30 }}
+              </div>
+            </div>
+
+            {% render 'fraud-protection' %}
+            
+            <div class="mt-6 flex flex-col space-y-3">
+                <button 
+                  class="w-full text-center px-6 py-4 rounded-lg font-bold bg-indigo-600 text-white hover:bg-indigo-700 transition-colors tlg-buy"
+                  data-variant="{{ product.first_available_variant.id }}"
+                  data-handle="{{ product.handle }}"
+                  data-direct="true">
+                  Direct Checkout
+                </button>
+                <button 
+                  class="w-full text-center px-6 py-4 rounded-lg font-bold bg-gray-900 text-white hover:bg-black transition-colors AddToCart"
+                  data-variant="{{ product.first_available_variant.id }}">
+                  Add to Briefing
+                </button>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if paginate.pages > 1 %}
+        <div class="mt-16 flex justify-center">
+          <nav class="flex items-center space-x-2">
+            {{ paginate | default_pagination }}
+          </nav>
+        </div>
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</section>
