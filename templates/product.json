@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {}
+    },
+    "recommendations": {
+      "type": "services-grid",
+      "settings": {
+        "title": "Related Advisory Services",
+        "subtitle": "Complementary solutions for your strategic objectives."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "recommendations"
+  ]
+}

@@ -29,7 +29,15 @@
         </div>
       </nav>
 
-      <div class="hidden lg:flex items-center space-x-4">
+      <div class="hidden lg:flex items-center space-x-6">
+        <a href="/cart" class="relative group p-2">
+          <svg class="h-6 w-6 text-gray-700 group-hover:text-indigo-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </svg>
+          <span id="CartCount" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full {% if cart.item_count == 0 %}hidden{% endif %}">
+            {{ cart.item_count }}
+          </span>
+        </a>
         <a href="{% if template == 'index' %}#service_grid{% else %}/#service_grid{% endif %}" class="btn btn--ghost secondary-btn text-sm font-bold border border-slate-300 px-4 py-2 rounded-md hover:bg-slate-50 transition-colors">Schedule Consultation</a>
       </div>
 

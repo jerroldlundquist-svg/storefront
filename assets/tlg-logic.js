@@ -29,6 +29,15 @@ window.TLG = {
   scheduleUrl(handle){
     const o = (this.scheduleOverrides && this.scheduleOverrides[handle]) || "";
     return o.length ? o : this.productUrl(handle);
+  },
+  async addToCart(variantId) {
+    const res = await fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items: [{ id: variantId, quantity: 1 }] })
+    });
+    if (!res.ok) throw new Error("Failed to add to cart");
+    return res.json();
   }
 };
 
@@ -154,6 +163,34 @@ window.TLG = {
       } catch (err) {
         console.error(err);
         alert("Could not start checkout. Please try again or contact support.");
+      }
+      return;
+    }
+
+    const addToCartBtn = e.target.closest("#AddToCart");
+    if (addToCartBtn) {
+      e.preventDefault();
+      const variantId = addToCartBtn.dataset.variant;
+      try {
+        addToCartBtn.disabled = true;
+        addToCartBtn.innerText = "Adding...";
+        await TLG.addToCart(variantId);
+        addToCartBtn.innerText = "Added to Briefing";
+        addToCartBtn.style.backgroundColor = "#059669"; // Green
+        
+        // Dynamic cart count update (if exists)
+        const countEl = document.getElementById("CartCount");
+        if (countEl) {
+          const res = await fetch('/cart.js');
+          const cart = await res.json();
+          countEl.innerText = cart.item_count;
+          countEl.classList.remove('hidden');
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Failed to add to cart. Please try again.");
+        addToCartBtn.disabled = false;
+        addToCartBtn.innerText = "Add to Briefing";
       }
       return;
     }
