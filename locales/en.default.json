@@ -11,5 +11,10 @@
     "social": {
       "links": "Social links"
     }
+  },
+  "accessibility": {
+    "skip_to_text": "Skip to content",
+    "close": "Close",
+    "unit_price_separator": "&nbsp;"
   }
 }
