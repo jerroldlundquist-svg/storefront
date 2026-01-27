@@ -17,8 +17,15 @@
       {{ section.settings.subtitle }}
     </p>
     <div class="stack" style="margin-top: 18px; display: flex; gap: 1rem; justify-content: center;">
-      <a class="btn btn--primary" href="{{ section.settings.cta_link_1 }}" style="background: var(--lg-sky); color: #002c5a; padding: 12px 18px; border-radius: 8px; font-weight: 700; text-decoration: none;">{{ section.settings.cta_text_1 }}</a>
-      <a class="btn btn--ghost" href="{{ section.settings.cta_link_2 }}" style="border: 1px solid rgba(255,255,255,0.4); color: white; padding: 12px 18px; border-radius: 8px; font-weight: 700; text-decoration: none;">{{ section.settings.cta_text_2 }}</a>
+      <a class="btn btn--primary {% if section.settings.cta_direct_1 %}tlg-buy{% endif %}" 
+         href="{{ section.settings.cta_link_1 }}" 
+         {% if section.settings.cta_direct_1 %}data-handle="{{ section.settings.cta_handle_1 }}" data-direct="true"{% endif %}
+         style="background: var(--lg-sky); color: #002c5a; padding: 12px 18px; border-radius: 8px; font-weight: 700; text-decoration: none;">{{ section.settings.cta_text_1 }}</a>
+      
+      <a class="btn btn--ghost {% if section.settings.cta_direct_2 %}tlg-schedule{% endif %}" 
+         href="{{ section.settings.cta_link_2 }}" 
+         {% if section.settings.cta_direct_2 %}data-handle="{{ section.settings.cta_handle_2 }}" data-direct="true"{% endif %}
+         style="border: 1px solid rgba(255,255,255,0.4); color: white; padding: 12px 18px; border-radius: 8px; font-weight: 700; text-decoration: none;">{{ section.settings.cta_text_2 }}</a>
     </div>
   </div>
 </section>
@@ -63,6 +70,18 @@
       "label": "CTA 1 Link"
     },
     {
+      "type": "checkbox",
+      "id": "cta_direct_1",
+      "label": "Is Direct Purchase (Upfront Payment)",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "cta_handle_1",
+      "label": "Product Handle for CTA 1",
+      "default": "executive-strategy-call-90"
+    },
+    {
       "type": "text",
       "id": "cta_text_2",
       "label": "CTA 2 Text",
@@ -72,6 +91,18 @@
       "type": "url",
       "id": "cta_link_2",
       "label": "CTA 2 Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "cta_direct_2",
+      "label": "Is Direct Schedule (Upfront Payment)",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "cta_handle_2",
+      "label": "Product Handle for CTA 2",
+      "default": "executive-strategy-call-30"
     }
   ],
   "presets": [

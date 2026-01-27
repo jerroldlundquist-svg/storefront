@@ -25,7 +25,10 @@
           {{ section.settings.list_items }}
         </div>
         <div class="stack" style="margin-top: 10px;">
-          <a class="btn btn--primary" href="{{ section.settings.cta_link }}" style="background: var(--lg-sky); color: #002c5a; padding: 12px 18px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block;">{{ section.settings.cta_text }}</a>
+          <a class="btn btn--primary {% if section.settings.cta_direct %}tlg-buy{% endif %}" 
+             href="{{ section.settings.cta_link }}" 
+             {% if section.settings.cta_direct %}data-handle="{{ section.settings.cta_handle }}" data-direct="true"{% endif %}
+             style="background: var(--lg-sky); color: #002c5a; padding: 12px 18px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block;">{{ section.settings.cta_text }}</a>
         </div>
       </div>
     </div>
@@ -44,7 +47,9 @@
     { "type": "text", "id": "subtitle", "label": "Sub-heading", "default": "What sets us apart" },
     { "type": "richtext", "id": "list_items", "label": "List Items" },
     { "type": "text", "id": "cta_text", "label": "CTA Text", "default": "Talk with an advisor" },
-    { "type": "url", "id": "cta_link", "label": "CTA Link" }
+    { "type": "url", "id": "cta_link", "label": "CTA Link" },
+    { "type": "checkbox", "id": "cta_direct", "label": "Is Direct Purchase (Upfront Payment)", "default": false },
+    { "type": "text", "id": "cta_handle", "label": "Product Handle", "default": "executive-strategy-call-90" }
   ],
   "presets": [{ "name": "About Leadership" }]
 }

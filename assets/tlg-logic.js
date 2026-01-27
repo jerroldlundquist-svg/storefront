@@ -1,5 +1,5 @@
 window.TLG = {
-  SHOP_DOMAIN: "www.lundquistgroupinc.com",
+  SHOP_DOMAIN: window.location.hostname,
   STOREFRONT_TOKEN: "f4492a01d84b81e415d692fb1454fff5",
   ENABLE_SHOP_PAY_INSTALLMENTS: true,
   ENABLE_KLARNA_MESSAGING: false,
@@ -149,6 +149,19 @@ window.TLG = {
     if(sched){
       e.preventDefault();
       const handle = sched.dataset.handle;
+      const direct = sched.dataset.direct === "true";
+
+      try {
+        if (direct && handle) {
+          const { variantId, sellingPlanId } = await getVariantAndPlan(handle, "");
+          const url = await createCheckout({ variantId, quantity: 1, sellingPlanId });
+          window.location.href = url;
+          return;
+        }
+      } catch (err) {
+        console.error("Schedule checkout error:", err);
+      }
+      
       window.location.href = TLG.scheduleUrl(handle);
     }
   });
