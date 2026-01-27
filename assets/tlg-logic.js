@@ -128,6 +128,7 @@ window.TLG = {
     if (buy) {
       e.preventDefault();
       const handle = buy.dataset.handle;
+      const variant = buy.dataset.variant;
       const planName = buy.dataset.sellingPlan || "";
       const direct = buy.dataset.direct === "true";
 
@@ -135,6 +136,12 @@ window.TLG = {
         if (!direct) {
           return window.location.href = TLG.productUrl(handle);
         }
+        
+        if (variant) {
+          window.location.href = `/cart/${variant}:1`;
+          return;
+        }
+
         const { variantId, sellingPlanId } = await getVariantAndPlan(handle, planName);
         const url = await createCheckout({ variantId, quantity: 1, sellingPlanId });
         window.location.href = url;
@@ -149,10 +156,18 @@ window.TLG = {
     if(sched){
       e.preventDefault();
       const handle = sched.dataset.handle;
+      const variant = sched.dataset.variant;
       const direct = sched.dataset.direct === "true";
 
       try {
-        if (direct && handle) {
+        if (direct && (handle || variant)) {
+          // If we have a variant ID directly, we can just use a cart link for maximum reliability
+          if (variant) {
+            window.location.href = `/cart/${variant}:1`;
+            return;
+          }
+
+          // Fallback to searching for variant if we only have handle
           const { variantId, sellingPlanId } = await getVariantAndPlan(handle, "");
           const url = await createCheckout({ variantId, quantity: 1, sellingPlanId });
           window.location.href = url;

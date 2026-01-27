@@ -25,9 +25,14 @@
           {{ section.settings.list_items }}
         </div>
         <div class="stack" style="margin-top: 10px;">
+          {% assign product = all_products[section.settings.cta_product] %}
           <a class="btn btn--primary {% if section.settings.cta_direct %}tlg-buy{% endif %}" 
-             href="{{ section.settings.cta_link }}" 
-             {% if section.settings.cta_direct %}data-handle="{{ section.settings.cta_handle }}" data-direct="true"{% endif %}
+             href="{% if section.settings.cta_direct and product != blank %}/cart/{{ product.first_available_variant.id }}:1{% else %}{{ section.settings.cta_link }}{% endif %}" 
+             {% if section.settings.cta_direct %}
+               data-handle="{{ product.handle }}" 
+               data-variant="{{ product.first_available_variant.id }}"
+               data-direct="true"
+             {% endif %}
              style="background: var(--lg-sky); color: #002c5a; padding: 12px 18px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block;">{{ section.settings.cta_text }}</a>
         </div>
       </div>
@@ -49,7 +54,7 @@
     { "type": "text", "id": "cta_text", "label": "CTA Text", "default": "Talk with an advisor" },
     { "type": "url", "id": "cta_link", "label": "CTA Link" },
     { "type": "checkbox", "id": "cta_direct", "label": "Is Direct Purchase (Upfront Payment)", "default": false },
-    { "type": "text", "id": "cta_handle", "label": "Product Handle", "default": "executive-strategy-call-90" }
+    { "type": "product", "id": "cta_product", "label": "Product" }
   ],
   "presets": [{ "name": "About Leadership" }]
 }

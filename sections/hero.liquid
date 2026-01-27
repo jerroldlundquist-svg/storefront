@@ -17,14 +17,24 @@
       {{ section.settings.subtitle }}
     </p>
     <div class="stack" style="margin-top: 18px; display: flex; gap: 1rem; justify-content: center;">
+      {% assign product_1 = all_products[section.settings.cta_product_1] %}
       <a class="btn btn--primary {% if section.settings.cta_direct_1 %}tlg-buy{% endif %}" 
-         href="{{ section.settings.cta_link_1 }}" 
-         {% if section.settings.cta_direct_1 %}data-handle="{{ section.settings.cta_handle_1 }}" data-direct="true"{% endif %}
+         href="{% if section.settings.cta_direct_1 and product_1 != blank %}/cart/{{ product_1.first_available_variant.id }}:1{% else %}{{ section.settings.cta_link_1 }}{% endif %}" 
+         {% if section.settings.cta_direct_1 %}
+           data-handle="{{ product_1.handle }}" 
+           data-variant="{{ product_1.first_available_variant.id }}"
+           data-direct="true"
+         {% endif %}
          style="background: var(--lg-sky); color: #002c5a; padding: 12px 18px; border-radius: 8px; font-weight: 700; text-decoration: none;">{{ section.settings.cta_text_1 }}</a>
       
+      {% assign product_2 = all_products[section.settings.cta_product_2] %}
       <a class="btn btn--ghost {% if section.settings.cta_direct_2 %}tlg-schedule{% endif %}" 
-         href="{{ section.settings.cta_link_2 }}" 
-         {% if section.settings.cta_direct_2 %}data-handle="{{ section.settings.cta_handle_2 }}" data-direct="true"{% endif %}
+         href="{% if section.settings.cta_direct_2 and product_2 != blank %}/cart/{{ product_2.first_available_variant.id }}:1{% else %}{{ section.settings.cta_link_2 }}{% endif %}" 
+         {% if section.settings.cta_direct_2 %}
+           data-handle="{{ product_2.handle }}" 
+           data-variant="{{ product_2.first_available_variant.id }}"
+           data-direct="true"
+         {% endif %}
          style="border: 1px solid rgba(255,255,255,0.4); color: white; padding: 12px 18px; border-radius: 8px; font-weight: 700; text-decoration: none;">{{ section.settings.cta_text_2 }}</a>
     </div>
   </div>
@@ -76,10 +86,9 @@
       "default": false
     },
     {
-      "type": "text",
-      "id": "cta_handle_1",
-      "label": "Product Handle for CTA 1",
-      "default": "executive-strategy-call-90"
+      "type": "product",
+      "id": "cta_product_1",
+      "label": "Product for CTA 1"
     },
     {
       "type": "text",
@@ -99,10 +108,9 @@
       "default": false
     },
     {
-      "type": "text",
-      "id": "cta_handle_2",
-      "label": "Product Handle for CTA 2",
-      "default": "executive-strategy-call-30"
+      "type": "product",
+      "id": "cta_product_2",
+      "label": "Product for CTA 2"
     }
   ],
   "presets": [

@@ -1,0 +1,10 @@
+﻿{
+    "errors":  [
+                   {
+                       "message":  "Field \u0027storefrontAccessTokens\u0027 doesn\u0027t exist on type \u0027QueryRoot\u0027",
+                       "locations":  "",
+                       "path":  "query storefrontAccessTokens",
+                       "extensions":  "@{code=undefinedField; typeName=QueryRoot; fieldName=storefrontAccessTokens}"
+                   }
+               ]
+}

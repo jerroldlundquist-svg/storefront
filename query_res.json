@@ -1,0 +1,14 @@
+﻿{
+    "data":  {
+                 "shop":  {
+                              "name":  "The Lundquist Group"
+                          }
+             },
+    "extensions":  {
+                       "cost":  {
+                                    "requestedQueryCost":  1,
+                                    "actualQueryCost":  1,
+                                    "throttleStatus":  "@{maximumAvailable=4000.0; currentlyAvailable=3999; restoreRate=200.0}"
+                                }
+                   }
+}
