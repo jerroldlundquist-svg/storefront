@@ -39,7 +39,39 @@
     "cta": {
       "type": "conversion-cta",
       "settings": {}
+    },
+    "service_grid": {
+      "type": "services-grid",
+      "settings": {
+        "title": "Strategy & Advisory Solutions",
+        "subtitle": "Direct access to senior aerospace leadership for mission-critical objectives."
+      },
+      "blocks": {
+        "s1": {
+          "type": "service",
+          "settings": {
+            "service_product": "executive-strategy-call-90",
+            "features": "90-minute deep dive\nRemote or On-site\nImmediate tactical roadmap\nRecording included"
+          }
+        },
+        "s2": {
+          "type": "service",
+          "settings": {
+            "service_product": "advisory-pack-3x60",
+            "features": "3 x 60-minute sessions\nFlexible scheduling\nOngoing project support\nDirect email access",
+            "highlight": true
+          }
+        },
+        "s3": {
+          "type": "service",
+          "settings": {
+            "service_product": "strategy-sprint-2w",
+            "features": "2-week intensive focus\nFull diagnostic brief\nBoard-ready presentation\nRisk mitigation plan"
+          }
+        }
+      },
+      "block_order": ["s1", "s2", "s3"]
     }
   },
-  "order": ["hero", "kpis", "methodology", "about", "outcomes", "cta"]
+  "order": ["hero", "kpis", "service_grid", "methodology", "about", "outcomes", "cta"]
 }

@@ -1,0 +1,140 @@
+{% schema %}
+{
+  "name": "Services Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Our Consulting Services"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Tailored aerospace and defense advisory solutions for high-stakes decisions."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Service Card",
+      "settings": [
+        {
+          "type": "product",
+          "id": "service_product",
+          "label": "Select Product"
+        },
+        {
+          "type": "text",
+          "id": "custom_title",
+          "label": "Custom Title (optional)",
+          "info": "Overrides product title"
+        },
+        {
+          "type": "textarea",
+          "id": "features",
+          "label": "Features (one per line)",
+          "default": "Feature 1\nFeature 2\nFeature 3"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Get Started"
+        },
+        {
+          "type": "checkbox",
+          "id": "highlight",
+          "label": "Highlight Card",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Services Grid",
+      "blocks": [
+        { "type": "service" },
+        { "type": "service" },
+        { "type": "service" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<section class="py-24 bg-white border-t border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-serif text-gray-900 sm:text-4xl mb-4">{{ section.settings.title }}</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        {{ section.settings.subtitle }}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% for block in section.blocks %}
+        {% assign product = all_products[block.settings.service_product] %}
+        <div class="flex flex-col border {% if block.settings.highlight %}border-indigo-600 ring-1 ring-indigo-600{% else %}border-gray-200{% endif %} rounded-2xl p-8 bg-white hover:shadow-xl transition-shadow duration-300">
+          <div class="flex-1">
+            <h3 class="text-2xl font-serif font-bold text-gray-900 mb-2">
+              {% if block.settings.custom_title != blank %}
+                {{ block.settings.custom_title }}
+              {% else %}
+                {{ product.title }}
+              {% endif %}
+            </h3>
+            <div class="flex items-baseline mb-6">
+              <span class="text-4xl font-bold tracking-tight text-gray-900">{{ product.price | money }}</span>
+              {% if product.compare_at_price > product.price %}
+                <span class="ml-2 text-lg text-gray-500 line-through">{{ product.compare_at_price | money }}</span>
+              {% endif %}
+            </div>
+            
+            <ul role="list" class="space-y-4 mb-8">
+              {% assign feature_list = block.settings.features | newline_to_br | split: '<br />' %}
+              {% for feature in feature_list %}
+                <li class="flex items-start">
+                  <svg class="h-6 w-6 text-indigo-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="ml-3 text-gray-600">{{ feature | strip }}</span>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          {% render 'fraud-protection' %}
+          
+          <a href="/cart/{{ product.first_available_variant.id }}:1" 
+             class="w-full text-center px-6 py-4 rounded-lg font-bold transition-colors duration-200 
+             {% if block.settings.highlight %}bg-indigo-600 text-white hover:bg-indigo-700{% else %}bg-gray-900 text-white hover:bg-black{% endif %} tlg-buy"
+             data-handle="{{ product.handle }}"
+             data-variant="{{ product.first_available_variant.id }}"
+             data-direct="true">
+            {{ block.settings.button_text }}
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Fraud Protection Badge -->
+    <div class="mt-20 flex flex-col items-center justify-center pt-10 border-t border-gray-100">
+      <div class="flex items-center space-x-6 grayscale opacity-60">
+        <div class="flex items-center space-x-2">
+          <svg class="h-6 w-6 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+          <span class="text-sm font-medium text-gray-500 uppercase tracking-wider">Secured Payments</span>
+        </div>
+        <div class="flex items-center space-x-2 border-l border-gray-200 pl-6">
+          <svg class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+          <span class="text-sm font-medium text-gray-500 uppercase tracking-wider">SSL Encrypted</span>
+        </div>
+      </div>
+      <p class="mt-4 text-xs text-gray-400 max-w-md text-center">
+        Transactions are secured by Shopify's enterprise-grade fraud protection. By proceeding, you agree to our anti-fraud protocols and verify that all consulting services are non-refundable once the discovery call or planning session commences.
+      </p>
+    </div>
+  </div>
+</section>
