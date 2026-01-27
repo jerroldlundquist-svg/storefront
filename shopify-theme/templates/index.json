@@ -1,0 +1,45 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "kpis": {
+      "type": "trust-kpis",
+      "blocks": {
+        "b1": { "type": "kpi", "settings": { "kpi_value": "$2.3B+", "kpi_label": "in transactions advised" } },
+        "b2": { "type": "kpi", "settings": { "kpi_value": "50+", "kpi_label": "companies engaged" } },
+        "b3": { "type": "kpi", "settings": { "kpi_value": "15+ yrs", "kpi_label": "average leadership experience" } }
+      },
+      "block_order": ["b1", "b2", "b3"]
+    },
+    "methodology": {
+      "type": "methodology",
+      "blocks": {
+        "p1": { "type": "phase", "settings": { "heading": "1) Rapid Assessment (1–2 weeks)", "content": "<p>Discovery sessions, KPI baseline, stakeholder mapping. Diagnostic brief & 90‑day plan.</p>" } },
+        "p2": { "type": "phase", "settings": { "heading": "2) Options & Business Case (2–4 weeks)", "content": "<p>Scenario design, sensitivity analysis, resourcing plan. Options memo & board‑ready deck.</p>" } },
+        "p3": { "type": "phase", "settings": { "heading": "3) Execution Support (ongoing)", "content": "<p>Workstream leadership, vendor coordination, tracking. Weekly progress reports & KPI roll‑ups.</p>" } },
+        "p4": { "type": "phase", "settings": { "heading": "4) Transition & Training (1–2 weeks)", "content": "<p>Knowledge transfer, playbooks, handover workshop. SOPs, dashboards, close‑out brief.</p>" } }
+      },
+      "block_order": ["p1", "p2", "p3", "p4"]
+    },
+    "about": {
+      "type": "about-leadership",
+      "settings": {}
+    },
+    "outcomes": {
+      "type": "client-outcomes",
+      "blocks": {
+        "o1": { "type": "outcome", "settings": { "heading": "Defense prime (Buy‑side)", "description": "Led diligence for avionics acquisition; identified $34M synergy case & risk mitigation plan. Closed on time." } },
+        "o2": { "type": "outcome", "settings": { "heading": "PE platform (Ops)", "description": "Stabilized supply chain; 11‑point margin recovery in 90 days; cash conversion +18% within 2 quarters." } },
+        "o3": { "type": "outcome", "settings": { "heading": "Dual‑use startup (Go‑to‑market)", "description": "Won first government program; built partner ecosystem; $12M pipeline in 6 months." } }
+      },
+      "block_order": ["o1", "o2", "o3"]
+    },
+    "cta": {
+      "type": "conversion-cta",
+      "settings": {}
+    }
+  },
+  "order": ["hero", "kpis", "methodology", "about", "outcomes", "cta"]
+}

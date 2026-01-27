@@ -1,0 +1,31 @@
+<section class="section" style="background: var(--lg-sand, #e5e3dc);">
+  <div class="shell" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <div class="grid grid--3" style="display: grid; gap: 24px; grid-template-columns: repeat(3, minmax(0, 1fr));">
+      {% for block in section.blocks %}
+        <div class="card" style="background: white; border: 1px solid #eaecee; border-radius: 14px; padding: 24px; text-align: center;">
+          <div class="kpi" style="font-size: clamp(28px, 3.5vw, 44px); font-weight: 800;">{{ block.settings.kpi_value }}</div>
+          <div class="kpi-sub" style="color: var(--lg-steel, #6b7b8c); font-size: 0.9rem;">{{ block.settings.kpi_label }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trust & KPIs",
+  "max_blocks": 3,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "kpi",
+      "name": "KPI",
+      "settings": [
+        { "type": "text", "id": "kpi_value", "label": "Value", "default": "$2.3B+" },
+        { "type": "text", "id": "kpi_label", "label": "Label", "default": "in transactions advised" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Trust & KPIs" }]
+}
+{% endschema %}

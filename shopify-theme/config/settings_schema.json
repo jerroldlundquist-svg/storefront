@@ -1,0 +1,33 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "The Lundquist Group",
+    "theme_version": "1.0.0",
+    "theme_author": "Antigravity",
+    "theme_documentation_url": "https://www.lundquistgroupinc.com",
+    "theme_support_url": "https://www.lundquistgroupinc.com"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary Color",
+        "default": "#0e2a47"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent Color",
+        "default": "#58a6ff"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background Color",
+        "default": "#ffffff"
+      }
+    ]
+  }
+]
