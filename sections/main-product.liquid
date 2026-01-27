@@ -32,19 +32,19 @@
           </div>
 
           <div class="mt-10">
-             <div class="mt-6 flex space-x-4">
+             <div class="mt-6 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                 <button 
-                  type="button"
-                  id="AddToCart"
-                  data-variant="{{ product.selected_or_first_available_variant.id }}"
-                  class="flex-1 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors uppercase tracking-widest font-bold"
+                   type="button"
+                   id="AddToCart"
+                   data-variant="{{ product.selected_or_first_available_variant.id }}"
+                   class="flex-1 bg-indigo-600 border border-transparent rounded-xl py-4 px-8 flex items-center justify-center text-base font-bold text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all transform hover:scale-[1.02] active:scale-[0.98] uppercase tracking-widest shadow-lg"
                 >
                   Add to Briefing
                 </button>
                 
                 <a 
                   href="/cart/{{ product.selected_or_first_available_variant.id }}:1"
-                  class="flex-1 bg-gray-900 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors uppercase tracking-widest font-bold"
+                  class="flex-1 bg-gray-900 border border-transparent rounded-xl py-4 px-8 flex items-center justify-center text-base font-bold text-white hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all transform hover:scale-[1.02] active:scale-[0.98] uppercase tracking-widest shadow-lg"
                 >
                   Direct Checkout
                 </a>

@@ -45,6 +45,10 @@
       },
       "block_order": ["s1", "s2", "s3"]
     },
+    "comparison_chart": {
+      "type": "service-comparison-chart",
+      "settings": {}
+    },
     "team": {
       "type": "team-gallery",
       "settings": {
@@ -97,5 +101,5 @@
       "settings": {}
     }
   },
-  "order": ["hero", "kpis", "service_grid", "team", "resources", "methodology", "about", "outcomes", "cta"]
+  "order": ["hero", "kpis", "service_grid", "comparison_chart", "team", "resources", "methodology", "about", "outcomes", "cta"]
 }

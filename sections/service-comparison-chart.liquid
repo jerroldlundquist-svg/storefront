@@ -1,0 +1,76 @@
+{% schema %}
+{
+  "name": "Service Comparison",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Compare Our Advisory Tiers"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Service Comparison"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-serif text-gray-900 sm:text-4xl mb-4">{{ section.settings.title }}</h2>
+      <p class="text-lg text-gray-600">Selecting the right level of engagement for your mission objectives.</p>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200">
+        <thead>
+          <tr class="bg-gray-900 text-white">
+            <th class="py-6 px-8 text-lg font-serif">Feature</th>
+            <th class="py-6 px-8 text-center text-lg font-serif">Executive Advisory</th>
+            <th class="py-6 px-8 text-center text-lg font-serif">Capital Strategy</th>
+            <th class="py-6 px-8 text-center text-lg font-serif">Operational Scale</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100">
+          <tr>
+            <td class="py-5 px-8 font-medium text-gray-900">Partner Access</td>
+            <td class="py-5 px-8 text-center text-gray-600">Direct / Unlimited</td>
+            <td class="py-5 px-8 text-center text-gray-600">Scheduled Sessions</td>
+            <td class="py-5 px-8 text-center text-gray-600">Project Based</td>
+          </tr>
+          <tr>
+            <td class="py-5 px-8 font-medium text-gray-900">Strategic Roadmap</td>
+            <td class="py-5 px-8 text-center text-indigo-600 font-bold">Comprehensive</td>
+            <td class="py-5 px-8 text-center text-indigo-600 font-bold">Execution Focused</td>
+            <td class="py-5 px-8 text-center text-gray-600">Component Based</td>
+          </tr>
+          <tr>
+            <td class="py-5 px-8 font-medium text-gray-900">Analysis Depth</td>
+            <td class="py-5 px-8 text-center text-gray-600">Multi-Domain</td>
+            <td class="py-5 px-8 text-center text-gray-600">Specific Domain</td>
+            <td class="py-5 px-8 text-center text-gray-600">Technical Only</td>
+          </tr>
+          <tr>
+            <td class="py-5 px-8 font-medium text-gray-900">Briefing Cadence</td>
+            <td class="py-5 px-8 text-center text-gray-600">Weekly</td>
+            <td class="py-5 px-8 text-center text-gray-600">Bi-Weekly</td>
+            <td class="py-5 px-8 text-center text-gray-600">Milestone Based</td>
+          </tr>
+          <tr class="bg-gray-50/50">
+            <td class="py-8 px-8 font-serif text-lg">Investment</td>
+            <td class="py-8 px-8 text-center font-bold text-gray-900">$25,000+</td>
+            <td class="py-8 px-8 text-center font-bold text-gray-900">$15,000+</td>
+            <td class="py-8 px-8 text-center font-bold text-gray-900">$10,000+</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="mt-12 text-center text-sm text-gray-500 italic">
+      * All prices are introductory and subject to custom scoping during the initial discovery session.
+    </div>
+  </div>
+</section>
