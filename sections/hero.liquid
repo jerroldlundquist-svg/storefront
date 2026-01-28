@@ -1,4 +1,25 @@
-<section class="section section--dark" style="padding: 0; position: relative; min-height: 70vh; display: grid; place-items: center; overflow: hidden;">
+<style>
+  .hero-stack {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 640px) {
+    .hero-stack {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 0 20px;
+    }
+    .hero-stack .btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>
+
+<section class="section section--dark" style="padding: 0; position: relative; min-height: 80vh; display: grid; place-items: center; overflow: hidden;">
   <div id="yt-bg" style="position: absolute; inset: 0; overflow: hidden; pointer-events: none;">
     <iframe
       id="yt-hero"
@@ -16,7 +37,7 @@
     <p class="lead" style="color: #cfd9e3; font-size: clamp(16px, 1.6vw, 18px);">
       {{ section.settings.subtitle }}
     </p>
-    <div class="stack" style="margin-top: 18px; display: flex; gap: 1rem; justify-content: center;">
+    <div class="hero-stack">
       {% assign product_1 = all_products[section.settings.cta_product_1] %}
       <a class="btn btn--primary {% if section.settings.cta_direct_1 %}tlg-buy{% endif %}" 
          href="{% if section.settings.cta_direct_1 and product_1 != blank %}/cart/{{ product_1.first_available_variant.id }}:1{% elsif section.settings.cta_link_1 != blank %}{{ section.settings.cta_link_1 }}{% else %}#cta{% endif %}" 

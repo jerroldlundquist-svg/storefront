@@ -1,8 +1,15 @@
 {
+  "sync_check": "2026-01-28-0026",
   "sections": {
     "hero": {
       "type": "hero",
-      "settings": {}
+      "settings": {
+        "video_id": "O-g80D3Dk6Y",
+        "cta_text_1": "Schedule 30-Minute Strategy Call",
+        "cta_link_1": "https://calendly.com/jerroldlundquist-svg/strategy-call",
+        "cta_text_2": "Explore Services",
+        "cta_link_2": "#service_grid"
+      }
     },
     "kpis": {
       "type": "trust-kpis",

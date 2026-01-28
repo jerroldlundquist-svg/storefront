@@ -23,21 +23,25 @@
     const acceptBtn = document.getElementById('AcceptCookies');
     const dismissBtn = document.getElementById('DismissBanner');
 
-    if (!localStorage.getItem('cookies-accepted')) {
+    function closeBanner(save = false) {
+      banner.classList.add('translate-y-full');
+      if (save) {
+        localStorage.setItem('cookies-accepted', 'true');
+      }
+      setTimeout(() => {
+        banner.remove();
+      }, 600);
+    }
+
+    if (localStorage.getItem('cookies-accepted')) {
+      banner.remove();
+    } else {
       setTimeout(() => {
         banner.classList.remove('translate-y-full');
       }, 1000);
     }
 
-    const closeBanner = () => {
-      banner.classList.add('translate-y-full');
-    };
-
-    acceptBtn.addEventListener('click', () => {
-      localStorage.setItem('cookies-accepted', 'true');
-      closeBanner();
-    });
-
-    dismissBtn.addEventListener('click', closeBanner);
+    acceptBtn.addEventListener('click', () => closeBanner(true));
+    dismissBtn.addEventListener('click', () => closeBanner(false));
   })();
 </script>
